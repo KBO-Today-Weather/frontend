@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <QueryProvider>
           <ReduxProvider>
-            <main className="mx-auto min-h-screen max-w-md bg-white border border-gray-200">
+            <main className="mx-auto min-h-screen max-w-[600px] bg-gray-50">
               {children}
             </main>
           </ReduxProvider>
