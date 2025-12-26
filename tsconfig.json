@@ -25,7 +25,8 @@
       "@/feat/*": ["./src/feat/*"],
       "@/shared/*": ["./src/shared/*"],
       "@/store/*": ["./src/store/*"],
-      "@/providers/*": ["./src/providers/*"]
+      "@/providers/*": ["./src/providers/*"],
+      "@/entities/*": ["./entities/*"]
     }
   },
   "include": [

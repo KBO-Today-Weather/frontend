@@ -1,12 +1,9 @@
 "use client";
 
-import Table from "./Table";
-import TableHeader from "./TableHeader";
-import TableBody from "./TableBody";
-import TableRow from "./TableRow";
-import TableCell from "./TableCell";
-import { useTable } from "../hook";
-import { HeadCell } from "../types";
+import Table from "./ui/Table";
+import { TableRow, TableCell } from "./ui";
+import { useTable } from "./hook";
+import { HeadCell } from "./types";
 import { cn } from "@/lib/utils";
 
 interface DataTableProps<T> {
@@ -45,7 +42,8 @@ function DataTable<T extends Record<string, unknown>>({
 
   return (
     <Table className={className}>
-      <TableHeader>
+      {/* header */}
+      <thead>
         <TableRow>
           {headCells.map((headCell) => {
             return (
@@ -70,8 +68,11 @@ function DataTable<T extends Record<string, unknown>>({
             );
           })}
         </TableRow>
-      </TableHeader>
-      <TableBody>
+      </thead>
+
+      {/* body */}
+      <tbody>
+        {/* empty */}
         {sortedData.length === 0 ? (
           <TableRow>
             <TableCell
@@ -119,7 +120,7 @@ function DataTable<T extends Record<string, unknown>>({
             </TableRow>
           ))
         )}
-      </TableBody>
+      </tbody>
     </Table>
   );
 }

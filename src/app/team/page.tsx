@@ -4,16 +4,9 @@ import Image from "next/image";
 import PageHeader from "@/components/ui/pageHeader";
 import Container from "@/components/ui/container";
 import { DataTable, HeadCell } from "@/components/table";
+import { TeamData } from "@/entities/team";
 
-interface TeamData extends Record<string, unknown> {
-  rank: number;
-  team: string;
-  games: number;
-  wins: number;
-  losses: number;
-  draws: number;
-  winRate: number;
-}
+
 
 const TeamPage = () => {
   // 팀별 아이콘 매핑 (나중에 각 팀마다 다른 아이콘으로 수정 가능)
