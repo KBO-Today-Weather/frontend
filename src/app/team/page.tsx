@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import PageHeader from "@/components/ui/pageHeader";
 import Container from "@/components/ui/container";
 import { DataTable, HeadCell } from "@/components/table";
@@ -15,6 +16,20 @@ interface TeamData extends Record<string, unknown> {
 }
 
 const TeamPage = () => {
+  // 팀별 아이콘 매핑 (나중에 각 팀마다 다른 아이콘으로 수정 가능)
+  const teamIcons: Record<string, string> = {
+    "삼성 라이온즈": "/sample.svg",
+    "LG 트윈스": "/sample.svg",
+    "한화 이글스": "/sample.svg",
+    "키움 히어로즈": "/sample.svg",
+    "KIA 타이거즈": "/sample.svg",
+    "롯데 자이언츠": "/sample.svg",
+    "두산 베어스": "/sample.svg",
+    "SSG 랜더스": "/sample.svg",
+    "NC 다이노스": "/sample.svg",
+    "KT 위즈": "/sample.svg",
+  };
+
   const data: TeamData[] = [
     { rank: 1, team: "삼성 라이온즈", games: 140, wins: 75, losses: 55, draws: 10, winRate: 0.561 },
     { rank: 2, team: "LG 트윈스", games: 140, wins: 77, losses: 53, draws: 10, winRate: 0.552 },
@@ -38,6 +53,16 @@ const TeamPage = () => {
       id: "team",
       label: "팀명",
       align: "left",
+      render: (value) => {
+        const teamName = value as string;
+        const iconSrc = teamIcons[teamName] || "/sample.svg";
+        return (
+          <div className="flex items-center gap-2">
+            <Image src={iconSrc} alt="" width={24} height={24} className="shrink-0" />
+            <span>{teamName}</span>
+          </div>
+        );
+      },
     },
     {
       id: "games",
