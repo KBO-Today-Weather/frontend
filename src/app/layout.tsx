@@ -4,6 +4,7 @@ import "./globals.css";
 import "@/assets/iconify-icons/generated-icons.css";
 import QueryProvider from "@/providers/QueryProvider";
 import ReduxProvider from "@/providers/ReduxProvider";
+import MainHeader from "@/components/ui/MainHeader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
         <QueryProvider>
           <ReduxProvider>
             <main className="mx-auto min-h-screen p-4 bg-[#fcfcfc] border border-gray-200">
+            <MainHeader />
               {children}
             </main>
           </ReduxProvider>

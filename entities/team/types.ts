@@ -6,4 +6,5 @@ export interface TeamData extends Record<string, unknown> {
     losses: number;
     draws: number;
     winRate: number;
+    streak: string;
   }

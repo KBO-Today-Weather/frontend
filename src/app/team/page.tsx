@@ -24,16 +24,16 @@ const TeamPage = () => {
   };
 
   const data: TeamData[] = [
-    { rank: 1, team: "삼성 라이온즈", games: 140, wins: 75, losses: 55, draws: 10, winRate: 0.561 },
-    { rank: 2, team: "LG 트윈스", games: 140, wins: 77, losses: 53, draws: 10, winRate: 0.552 },
-    { rank: 4, team: "한화 이글스", games: 140, wins: 73, losses: 57, draws: 10, winRate: 0.550 },
-    { rank: 5, team: "키움 히어로즈", games: 140, wins: 72, losses: 58, draws: 10, winRate: 0.543 },
-    { rank: 6, team: "KIA 타이거즈", games: 140, wins: 71, losses: 59, draws: 10, winRate: 0.543 },
-    { rank: 7, team: "롯데 자이언츠", games: 140, wins: 70, losses: 60, draws: 10, winRate: 0.536 },
-    { rank: 3, team: "두산 베어스", games: 140, wins: 80, losses: 50, draws: 10, winRate: 0.571 },
-    { rank: 8, team: "SSG 랜더스", games: 140, wins: 69, losses: 61, draws: 10, winRate: 0.532 },
-    { rank: 9, team: "NC 다이노스", games: 140, wins: 68, losses: 62, draws: 10, winRate: 0.529 },
-    { rank: 10, team: "KT 위즈", games: 140, wins: 67, losses: 63, draws: 10, winRate: 0.525 },
+    { rank: 1, team: "삼성 라이온즈", games: 140, wins: 75, losses: 55, draws: 10, winRate: 0.561, streak: "3승" },
+    { rank: 2, team: "LG 트윈스", games: 140, wins: 77, losses: 53, draws: 10, winRate: 0.552, streak: "2승" },
+    { rank: 4, team: "한화 이글스", games: 140, wins: 73, losses: 57, draws: 10, winRate: 0.550, streak: "1패" },
+    { rank: 5, team: "키움 히어로즈", games: 140, wins: 72, losses: 58, draws: 10, winRate: 0.543, streak: "4승" },
+    { rank: 6, team: "KIA 타이거즈", games: 140, wins: 71, losses: 59, draws: 10, winRate: 0.543, streak: "2패" },
+    { rank: 7, team: "롯데 자이언츠", games: 140, wins: 70, losses: 60, draws: 10, winRate: 0.536, streak: "1승" },
+    { rank: 3, team: "두산 베어스", games: 140, wins: 80, losses: 50, draws: 10, winRate: 0.571, streak: "5승" },
+    { rank: 8, team: "SSG 랜더스", games: 140, wins: 69, losses: 61, draws: 10, winRate: 0.532, streak: "3패" },
+    { rank: 9, team: "NC 다이노스", games: 140, wins: 68, losses: 62, draws: 10, winRate: 0.529, streak: "1승" },
+    { rank: 10, team: "KT 위즈", games: 140, wins: 67, losses: 63, draws: 10, winRate: 0.525, streak: "2패" },
   ];
 
   const headCells: HeadCell<TeamData>[] = [
@@ -84,10 +84,15 @@ const TeamPage = () => {
       align: "center",
       render: (value) => (value as number).toFixed(3),
     },
+    {
+      id: "streak",
+      label: "연속",
+      align: "center",
+    },
   ];
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 p-4">
       <PageHeader title="팀 정보 & 순위" description="팀별 순위, 경기 일정, 선수 정보를 확인하세요" />
       <Container padding="p-0">
         <DataTable

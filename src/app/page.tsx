@@ -1,11 +1,10 @@
 import Gamecard from "@/components/ui/GameCard";
 import KoreaMap from "@/components/ui/KoreaMap";
-import MainHeader from "@/components/ui/MainHeader";
 
 const Home = () => {
   return (
     <div className="flex flex-col min-h-screen items-center">
-      <MainHeader />
+     
 
       <main className="flex-1 w-full max-w-5xl mx-auto p-6">
         <div className="flex items-center justify-between mb-2">
