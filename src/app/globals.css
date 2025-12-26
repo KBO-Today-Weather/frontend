@@ -41,6 +41,24 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  --color-kbo-blue: #1f3399;
+  --color-kbo-darkBlue: #0c1f7a;
+  --color-kbo-navy: #273b61;
+  --color-kbo-gray: #808390;
+  --color-kbo-black: #252329;
+  --color-kbo-light: #e8ebff;
+
+  --color-kiwoom: #570414;
+  --color-hanwha: #fc4f00;
+  --color-ssg: #ce0f2d;
+  --color-samsung: #064ca2;
+  --color-doosan: #131230;
+  --color-kt: #000000;
+  --color-lg: #c30452;
+  --color-kia: #ea0029;
+  --color-nc: #325288;
+  --color-lotte: #041e42;
 }
 
 :root {
