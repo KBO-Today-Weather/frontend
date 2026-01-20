@@ -1,5 +1,6 @@
 import IconTextButton from "@/shared/ui/IconTextButton";
 import Image from "next/image";
+import { H3, H4 } from "@/lib/Typography";
 
 const MainHeader = () => {
   return (
@@ -7,7 +8,7 @@ const MainHeader = () => {
       {/* 좌측: 로고 또는 메뉴 */}
       <div className="flex items-center">
         <Image src="/image/KBOLogo.svg" alt="KBO Logo" width={45} height={45} />
-        <h1 className="font-bold text-black"> KBO늘의 날씨</h1>
+        <H3 className="font-bold text-black"> KBO늘의 날씨</H3>
       </div>
 
       {/* 우측: 알림 또는 프로필 */}

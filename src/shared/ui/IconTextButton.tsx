@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { P } from "@/lib/Typography";
 
 interface IconTextButtonProps {
   icon: string;
@@ -22,11 +23,11 @@ const IconTextButton = ({ icon, hoverIcon, text }: IconTextButtonProps) => {
         <Image
           src={isHovered && hoverIcon ? hoverIcon : icon}
           alt="icon"
-          width={18}
-          height={18}
+          width={20}
+          height={20}
           priority
         />
-        <span className="text-sm">{text}</span>
+        <P>{text}</P>
       </div>
     </button>
   );
