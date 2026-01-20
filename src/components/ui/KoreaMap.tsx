@@ -11,10 +11,10 @@ const KoreaMap = () => {
       <ComposableMap
         projection="geoMercator"
         projectionConfig={{
-          scale: 6000,
+          scale: 4500,
           center: [127.6, 36.5],
         }}
-        className="w-full h-full"
+        height={450}
       >
         <Geographies geography={GEO_URL}>
           {({ geographies }) =>
@@ -29,16 +29,19 @@ const KoreaMap = () => {
                       stroke: "#334155", // 테두리 색상
                       strokeWidth: 0.5,
                       outline: "none",
+                      
                     },
                     hover: {
-                      fill: "#3B82F6", // 호버 시 파란색 (Blue-500)
+                      fill: "#F8FAFC", // 기본 색상 (Slate-700)
+                      stroke: "#334155", // 테두리 색상
                       outline: "none",
                       transition: "all 0.2s ease",
                       cursor: "pointer",
+                      pointerEvents: "none",
                     },
                     pressed: {
-                      fill: "#1D4ED8", // 클릭 시 진한 파란색
-                      outline: "none",
+                      fill: "#F8FAFC", // 기본 색상 (Slate-700)
+                      pointerEvents: "none",
                     },
                   }}
                 />

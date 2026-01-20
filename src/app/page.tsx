@@ -7,7 +7,7 @@ const Home = () => {
     <div className="flex flex-col min-h-screen items-center">
       <MainHeader />
 
-      <main className="flex-1 w-full max-w-5xl mx-auto p-6">
+      <main className="flex-1 w-full p-6">
         <div className="flex items-center justify-between mb-2">
           <h2 className="font-semibold text-gray-900 ml-2">전국 구장 지도</h2>
           <div className="flex items-center gap-2 text-gray-500 text-sm">
