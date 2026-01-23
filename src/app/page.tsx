@@ -1,7 +1,8 @@
+import KoreaMap from "@/components/map/ui/KoreaMap";
 import Gamecard from "@/components/ui/GameCard";
-import KoreaMap from "@/components/ui/KoreaMap";
 import MainHeader from "@/components/ui/MainHeader";
 import { H3, P } from "@/lib/Typography";
+
 const Home = () => {
   return (
     <div className="flex flex-col min-h-screen items-center">
