@@ -5,12 +5,18 @@ import { Marker } from "react-simple-maps";
 
 export interface Stadium {
   id: string;
+  name?: string;
   coordinates: [number, number];
   logo?: string; // 일반 구장용
   logos?: { team1: string; team2: string }; // 잠실 전용
 }
 
-const StadiumMarker = ({ stadium }: { stadium: Stadium }) => {
+interface MarkerProps {
+  stadium: Stadium;
+  onSelect: (stadium: Stadium) => void;
+}
+
+const StadiumMarker = ({ stadium, onSelect }: MarkerProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const isJamsil = stadium.id === "jamsil";
 
@@ -18,11 +24,17 @@ const StadiumMarker = ({ stadium }: { stadium: Stadium }) => {
   const logoSize = 26;
   const yOffset = isExpanded ? 12 : 3;
 
+  const handleClick = (e: React.MouseEvent) => {
+    e.stopPropagation(); // 지도 클릭 이벤트 전파 방지
+    if (isJamsil && !isExpanded) {
+      setIsExpanded(true); // 잠실은 처음 클릭 시 펼치기만 함
+    } else {
+      onSelect(stadium); // 일반 구장이나 펼쳐진 잠실 로고 클릭 시 사이드바 오픈
+    }
+  };
+
   return (
-    <Marker
-      coordinates={stadium.coordinates}
-      onClick={() => isJamsil && setIsExpanded(!isExpanded)}
-    >
+    <Marker coordinates={stadium.coordinates} onClick={handleClick}>
       <g style={{ cursor: "pointer" }}>
         {isJamsil ? (
           // [잠실 구장 UI]
@@ -34,12 +46,7 @@ const StadiumMarker = ({ stadium }: { stadium: Stadium }) => {
               height={logoSize}
               x={-(logoSize / 2)}
               y={-(logoSize / 2) - yOffset}
-              style={{
-                transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-                filter: isExpanded
-                  ? "drop-shadow(0 4px 6px rgba(0,0,0,0.2))"
-                  : "none",
-              }}
+              style={{ transition: "all 0.4s ease-out" }}
             />
             {/* LG 로고 - 아래로 이동 */}
             <image
@@ -48,12 +55,7 @@ const StadiumMarker = ({ stadium }: { stadium: Stadium }) => {
               height={logoSize}
               x={-(logoSize / 2)}
               y={-(logoSize / 2) + yOffset}
-              style={{
-                transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-                filter: isExpanded
-                  ? "drop-shadow(0 4px 6px rgba(0,0,0,0.2))"
-                  : "none",
-              }}
+              style={{ transition: "all 0.4s ease-out" }}
             />
           </>
         ) : (
@@ -64,6 +66,7 @@ const StadiumMarker = ({ stadium }: { stadium: Stadium }) => {
             height={logoSize}
             x={-(logoSize / 2)}
             y={-(logoSize / 2)}
+            onClick={() => {}}
           />
         )}
       </g>
