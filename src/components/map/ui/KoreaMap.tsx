@@ -3,11 +3,13 @@
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import StadiumMarker, { Stadium } from "./StadiumMarker";
 import { useState } from "react";
+import StadiumDetail from "./StadiumDetail";
 
 // 구장 데이터 (잠실은 특수 처리를 위해 id 부여)
 const STADIUMS: Stadium[] = [
   {
     id: "jamsil",
+    name: "잠실 야구장",
     coordinates: [127.2, 37.512],
     logos: {
       team1: "/image/teamLogo/Doosan.svg",
@@ -16,41 +18,49 @@ const STADIUMS: Stadium[] = [
   },
   {
     id: "kiwoom",
+    name: "고척 스카이돔",
     coordinates: [126.85, 37.498],
     logo: "/image/teamLogo/Kiwoom.svg",
   },
   {
     id: "ssg",
+    name: "인천 SSG 랜더스필드",
     coordinates: [126.58, 37.437],
     logo: "/image/teamLogo/Ssg.svg",
   },
   {
     id: "kt",
+    name: "수원 KT 위즈파크",
     coordinates: [127.009, 37.258],
     logo: "/image/teamLogo/Kt.svg",
   },
   {
     id: "hanwha",
+    name: "대전 한화생명 이글스파크",
     coordinates: [127.431, 36.317],
     logo: "/image/teamLogo/Hanwha.svg",
   },
   {
     id: "samsung",
+    name: "대구 삼성 라이온즈파크",
     coordinates: [128.681, 35.841],
     logo: "/image/teamLogo/Samsung.svg",
   },
   {
     id: "kia",
+    name: "광주 KIA 챔피언스 필드",
     coordinates: [126.889, 35.168],
     logo: "/image/teamLogo/Kia.svg",
   },
   {
     id: "nc",
+    name: "창원 NC 파크",
     coordinates: [128.582, 35.223],
     logo: "/image/teamLogo/Nc.svg",
   },
   {
     id: "lotte",
+    name: "부산 사직 야구장",
     coordinates: [129.061, 35.194],
     logo: "/image/teamLogo/Lotte.svg",
   },
@@ -125,54 +135,10 @@ const KoreaMap = () => {
         }`}
       >
         {selectedStadium && (
-          <div className="p-6 h-full flex flex-col">
-            <div className="flex justify-between items-center mb-8">
-              <h2 className="text-2xl font-bold uppercase">
-                {selectedStadium.id} 상세 정보
-              </h2>
-              <button
-                onClick={() => setSelectedStadium(null)}
-                className="p-2 hover:bg-slate-100 rounded-full transition-colors"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-              </button>
-            </div>
-
-            {/* 컨텐츠 영역 */}
-            <div className="flex-1 overflow-y-auto">
-              <div className="aspect-video bg-slate-100 rounded-xl mb-6 flex items-center justify-center">
-                {/* 선택된 구장의 로고나 경기장 이미지 등을 넣을 수 있습니다 */}
-                <span className="text-slate-400 font-medium">
-                  Stadium Image Area
-                </span>
-              </div>
-
-              <div className="space-y-4">
-                <div className="p-4 bg-slate-50 rounded-lg">
-                  <p className="text-sm text-slate-500 mb-1">
-                    오늘의 경기 정보
-                  </p>
-                  <p className="font-semibold text-lg">
-                    데이터를 불러오는 중...
-                  </p>
-                </div>
-                {/* 추가 구장/팀 정보가 들어갈 자리 */}
-              </div>
-            </div>
-          </div>
+          <StadiumDetail
+            stadium={selectedStadium}
+            onClose={() => setSelectedStadium(null)}
+          />
         )}
       </aside>
     </div>

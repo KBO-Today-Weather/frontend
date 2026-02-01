@@ -5,7 +5,7 @@ import { Marker } from "react-simple-maps";
 
 export interface Stadium {
   id: string;
-  name?: string;
+  name: string;
   coordinates: [number, number];
   logo?: string; // 일반 구장용
   logos?: { team1: string; team2: string }; // 잠실 전용
