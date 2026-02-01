@@ -10,7 +10,7 @@ interface HourlyData {
 
 const HourlyForecast = ({ data }: { data: HourlyData[] }) => {
   return (
-    <div className="flex overflow-x-auto scrollbar-hide cursor-pointer gap-6 pb-2 scrollbar-hide">
+    <div className="flex overflow-x-auto scrollbar-hide cursor-pointer gap-6 pb-2">
       {data.map((item, index) => (
         <div
           key={index}
