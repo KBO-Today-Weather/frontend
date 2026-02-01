@@ -1,5 +1,14 @@
+"use client";
+
+import {
+  IconHome,
+  IconUsers,
+  IconBuildingStadium,
+  IconChartBar,
+} from "@tabler/icons-react";
 import IconTextButton from "@/shared/ui/IconTextButton";
 import Image from "next/image";
+import { H3 } from "@/lib/Typography";
 
 const MainHeader = () => {
   return (
@@ -7,31 +16,15 @@ const MainHeader = () => {
       {/* 좌측: 로고 또는 메뉴 */}
       <div className="flex items-center">
         <Image src="/image/KBOLogo.svg" alt="KBO Logo" width={45} height={45} />
-        <h1 className="font-bold text-black"> KBO늘의 날씨</h1>
+        <H3 className="font-bold text-black"> KBO늘의 날씨</H3>
       </div>
 
       {/* 우측: 알림 또는 프로필 */}
       <div className="flex items-center">
-        <IconTextButton
-          icon="/image/main/Home.svg"
-          hoverIcon="/image/main/Home(white).svg"
-          text="홈"
-        />
-        <IconTextButton
-          icon="/image/main/People.svg"
-          hoverIcon="/image/main/People(white).svg"
-          text="팀"
-        />
-        <IconTextButton
-          icon="/image/main/Stadium.svg"
-          hoverIcon="/image/main/Stadium(white).svg"
-          text="구장"
-        />
-        <IconTextButton
-          icon="/image/main/Graph.svg"
-          hoverIcon="/image/main/Graph(white).svg"
-          text="통계"
-        />
+        <IconTextButton icon={IconHome} text="홈" />
+        <IconTextButton icon={IconUsers} text="팀" />
+        <IconTextButton icon={IconBuildingStadium} text="구장" />
+        <IconTextButton icon={IconChartBar} text="통계" />
       </div>
     </header>
   );

@@ -1,18 +1,19 @@
+import KoreaMap from "@/components/map/ui/KoreaMap";
 import Gamecard from "@/components/ui/GameCard";
-import KoreaMap from "@/components/ui/KoreaMap";
 import MainHeader from "@/components/ui/MainHeader";
+import { H3, P } from "@/lib/Typography";
 
 const Home = () => {
   return (
     <div className="flex flex-col min-h-screen items-center">
       <MainHeader />
 
-      <main className="flex-1 w-full max-w-5xl mx-auto p-6">
+      <main className="flex-1 w-full p-6">
         <div className="flex items-center justify-between mb-2">
-          <h2 className="font-semibold text-gray-900 ml-2">전국 구장 지도</h2>
+          <H3 className="font-semibold text-gray-900 ml-2">전국 구장 지도</H3>
           <div className="flex items-center gap-2 text-gray-500 text-sm">
             <div className="text-sm w-2 h-2 bg-green-500 rounded-full"></div>
-            <span>9개 구장</span>
+            <P>9개 구장</P>
           </div>
         </div>
 
@@ -22,9 +23,9 @@ const Home = () => {
           </div>
         </div>
 
-        <h2 className="font-semibold text-gray-900 ml-2 mt-5 mb-2">
+        <H3 className="font-semibold text-gray-900 ml-2 mt-5 mb-2">
           오늘의 경기
-        </h2>
+        </H3>
 
         <Gamecard
           homeTeam={{ name: "키움", color: "bg-kiwoom" }}
@@ -33,7 +34,7 @@ const Home = () => {
           stadium="고척 스카이돔"
         />
         <Gamecard
-          homeTeam={{ name: "LG", color: "bg-lg" }}
+          homeTeam={{ name: "LG", color: "bg-Lg" }}
           awayTeam={{ name: "삼성", color: "bg-samsung" }}
           time="18:30"
           stadium="잠실 야구장"

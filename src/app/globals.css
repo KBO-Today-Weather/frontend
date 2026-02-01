@@ -42,7 +42,7 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
-  --color-kbo-light: #E5E9FF;
+  --color-kbo-light: #e5e9ff;
   --color-kbo-lightBlue: #1f3399;
   --color-kbo-blue: #0c1f7a;
   --color-kbo-darkBlue: #001f63;
@@ -56,7 +56,7 @@
   --color-samsung: #064ca2;
   --color-doosan: #131230;
   --color-kt: #000000;
-  --color-lg: #c30452;
+  --color-Lg: #c30452;
   --color-kia: #ea0029;
   --color-nc: #325288;
   --color-lotte: #041e42;
@@ -137,5 +137,18 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    /* IE and Edge */
+    -ms-overflow-style: none;
+    /* Firefox */
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    /* Safari and Chrome */
+    display: none;
   }
 }
