@@ -14,6 +14,7 @@ import SectionCard from "./SectionCard";
 import WeatherInfoItem from "./WeatherInfoItem";
 import HourlyForecast from "./HourlyForecast";
 import ForecastRow from "./ForecastRow";
+import IconTextButton from "@/shared/ui/IconTextButton";
 
 interface StadiumDetailProps {
   stadium: Stadium;
@@ -79,8 +80,7 @@ const StadiumDetail = ({ stadium, onClose }: StadiumDetailProps) => {
               </div>
             </div>
             <div className="flex items-center gap-1.5 ml-4px-3 py-1.5">
-              <IconClock size={16} className="text-slate-400" />
-              <span className="text-sm font-bold text-slate-700">18:30</span>
+              <IconTextButton icon={IconClock} text="18:30" />
             </div>
           </div>
         </SectionCard>

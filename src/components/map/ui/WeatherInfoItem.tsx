@@ -1,5 +1,6 @@
 "use client";
 
+import IconTextButton from "@/shared/ui/IconTextButton";
 import { IconProps } from "@tabler/icons-react";
 
 interface WeatherInfoItemProps {
@@ -10,16 +11,19 @@ interface WeatherInfoItemProps {
 }
 
 const WeatherInfoItem = ({
-  icon: Icon,
+  icon,
   label,
   value,
   subValue,
 }: WeatherInfoItemProps) => {
   return (
     <div className="bg-white p-4 rounded-2xl border border-slate-100 flex flex-col gap-1">
-      <div className="flex items-center gap-1.5 text-slate-400 text-[13px] font-medium">
-        <Icon size={18} stroke={2} />
-        <span>{label}</span>
+      <div className="-ml-3">
+        <IconTextButton
+          icon={icon}
+          text={label}
+          className="pointer-events-none"
+        />
       </div>
       <div className="text-xl font-bold text-slate-900 mt-1">{value}</div>
       {subValue && (
