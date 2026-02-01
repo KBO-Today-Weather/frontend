@@ -34,7 +34,7 @@ const Home = () => {
           stadium="고척 스카이돔"
         />
         <Gamecard
-          homeTeam={{ name: "LG", color: "bg-lg" }}
+          homeTeam={{ name: "LG", color: "bg-Lg" }}
           awayTeam={{ name: "삼성", color: "bg-samsung" }}
           time="18:30"
           stadium="잠실 야구장"
