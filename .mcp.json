@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "figma": {
+      "command": "npx",
+      "args": ["-y", "cursor-talk-to-figma-socket"],
+      "env": {
+        "PORT": "3055"
+      }
+    }
+  }
+}
