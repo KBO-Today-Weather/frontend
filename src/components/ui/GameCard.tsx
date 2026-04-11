@@ -2,7 +2,7 @@ import KboNameTag from "@/shared/ui/KboNameTag";
 import Image from "next/image";
 import { H3, P } from "@/lib/Typography";
 
-interface GamecardProps {
+interface GameCardProps {
   // 홈 팀 정보
   homeTeam: {
     name: string;
@@ -17,7 +17,7 @@ interface GamecardProps {
   stadium: string; // 경기장 이름
 }
 
-const Gamecard = ({ homeTeam, awayTeam, time, stadium }: GamecardProps) => {
+const GameCard = ({ homeTeam, awayTeam, time, stadium }: GameCardProps) => {
   return (
     <div className="flex flex-col bg-white border border-gray-200 rounded-lg py-3 px-4 mb-1">
       <div className="flex justify-between">
@@ -50,4 +50,4 @@ const Gamecard = ({ homeTeam, awayTeam, time, stadium }: GamecardProps) => {
     </div>
   );
 };
-export default Gamecard;
+export default GameCard;

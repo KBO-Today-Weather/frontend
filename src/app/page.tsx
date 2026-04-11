@@ -1,5 +1,5 @@
 import KoreaMap from "@/components/map/ui/KoreaMap";
-import Gamecard from "@/components/ui/GameCard";
+import GameCard from "@/components/ui/GameCard";
 import MainHeader from "@/components/ui/MainHeader";
 import { H3, P } from "@/lib/Typography";
 
@@ -27,25 +27,25 @@ const Home = () => {
           오늘의 경기
         </H3>
 
-        <Gamecard
+        <GameCard
           homeTeam={{ name: "키움", color: "bg-kiwoom" }}
           awayTeam={{ name: "두산", color: "bg-doosan" }}
           time="18:30"
           stadium="고척 스카이돔"
         />
-        <Gamecard
+        <GameCard
           homeTeam={{ name: "LG", color: "bg-Lg" }}
           awayTeam={{ name: "삼성", color: "bg-samsung" }}
           time="18:30"
           stadium="잠실 야구장"
         />
-        <Gamecard
+        <GameCard
           homeTeam={{ name: "한화", color: "bg-hanwha" }}
           awayTeam={{ name: "KIA", color: "bg-kia" }}
           time="18:30"
           stadium="잠실 야구장"
         />
-        <Gamecard
+        <GameCard
           homeTeam={{ name: "NC", color: "bg-nc" }}
           awayTeam={{ name: "SSG", color: "bg-ssg" }}
           time="18:30"
