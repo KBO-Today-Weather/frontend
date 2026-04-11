@@ -33,6 +33,10 @@ description: 피그마 MCP를 활용해 디자인을 Next.js 컴포넌트로 퍼
 - `Label` — 폼 라벨 (Radix UI)
 - `Form` — React Hook Form 래퍼
 
+**메인 컴포넌트** (`@/components/main/ui/`):
+
+- `TeamSelectModal` — 내 팀 선택 모달 (Compound Component: `Title` / `TeamGrid`)
+
 **테이블 컴포넌트** (`@/components/table/`):
 
 - `DataTable` — 정렬 가능한 데이터 테이블
