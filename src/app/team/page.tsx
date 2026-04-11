@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import PageHeader from "@/components/ui/pageHeader";
-import Container from "@/components/ui/container";
+import PageHeader from "@/components/ui/PageHeader";
+import Container from "@/components/ui/Container";
 import { DataTable, HeadCell } from "@/components/table";
 import { TeamData } from "@/entities/team";
 
