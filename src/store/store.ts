@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import dummyReducer from "./dummySlice";
+import myTeamReducer from "./myTeamStore";
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       dummy: dummyReducer,
+      myTeam: myTeamReducer,
     },
   });
 };
