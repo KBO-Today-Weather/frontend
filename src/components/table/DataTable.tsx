@@ -1,9 +1,9 @@
 "use client";
 
-import Table from "./ui/Table";
-import { TableRow, TableCell } from "./ui";
-import { useTable } from "./hook";
-import { HeadCell } from "./types";
+import Table from "@/components/table/ui/Table";
+import { TableRow, TableCell } from "@/components/table/ui";
+import { useTable } from "@/components/table/hook";
+import { HeadCell } from "@/components/table/types";
 import { cn } from "@/lib/utils";
 
 interface DataTableProps<T> {

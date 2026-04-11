@@ -1,9 +1,9 @@
 "use client";
 
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
-import StadiumMarker, { Stadium } from "./StadiumMarker";
+import StadiumMarker, { Stadium } from "@/components/map/ui/StadiumMarker";
 import { useState } from "react";
-import StadiumDetail from "./StadiumDetail";
+import StadiumDetail from "@/components/map/ui/StadiumDetail";
 
 // 구장 데이터 (잠실은 특수 처리를 위해 id 부여)
 const STADIUMS: Stadium[] = [

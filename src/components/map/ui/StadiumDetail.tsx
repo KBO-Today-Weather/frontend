@@ -9,11 +9,11 @@ import {
   IconMapPin,
 } from "@tabler/icons-react";
 import { H3, P } from "@/lib/Typography";
-import { Stadium } from "./StadiumMarker";
-import SectionCard from "./SectionCard";
-import WeatherInfoItem from "./WeatherInfoItem";
-import HourlyForecast from "./HourlyForecast";
-import ForecastRow from "./ForecastRow";
+import { Stadium } from "@/components/map/ui/StadiumMarker";
+import SectionCard from "@/components/map/ui/SectionCard";
+import WeatherInfoItem from "@/components/map/ui/WeatherInfoItem";
+import HourlyForecast from "@/components/map/ui/HourlyForecast";
+import ForecastRow from "@/components/map/ui/ForecastRow";
 import IconTextButton from "@/shared/ui/IconTextButton";
 
 interface StadiumDetailProps {
