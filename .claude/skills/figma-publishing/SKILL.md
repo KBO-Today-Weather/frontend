@@ -92,10 +92,25 @@ description: 피그마 MCP를 활용해 디자인을 Next.js 컴포넌트로 퍼
 
 ### 디렉토리 배치
 
-| 조건                                | 위치                                         |
-| ----------------------------------- | -------------------------------------------- |
-| 3개 이상 페이지에서 재사용          | `src/shared/ui/`                             |
-| 2번 이하 사용 또는 shadcn 자동 설치 | `src/components/ui/` (또는 적절한 하위 폴더) |
+| 조건 | 위치 |
+| --- | --- |
+| 3개 이상 페이지에서 범용 재사용 | `src/shared/ui/` |
+| 여러 페이지에서 재사용하지만 앱 전반적인 UI | `src/components/ui/` |
+| 특정 기능 그룹(페이지/영역) 전용 | `src/components/[그룹명]/ui/` |
+| shadcn 자동 설치 컴포넌트 | `src/components/ui/` |
+
+- `[그룹명]`은 기능 단위 그룹명으로 짓는다. (예: `main`, `table`, `map`)
+- 특정 페이지/영역에서만 쓰이는 컴포넌트는 `components/ui/`가 아닌 해당 그룹 폴더에 둔다.
+
+```
+src/
+  shared/ui/          — 앱 전반 범용 컴포넌트 (KboNameTag, IconTextButton 등)
+  components/
+    ui/               — 공통 UI 컴포넌트 (Button, MainHeader, GameCard 등)
+    main/ui/          — 메인 페이지 전용 컴포넌트 (TeamSelectModal 등)
+    table/ui/         — 테이블 전용 컴포넌트
+    map/ui/           — 지도 전용 컴포넌트
+```
 
 ### 파일 네이밍
 
