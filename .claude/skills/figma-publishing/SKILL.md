@@ -66,6 +66,30 @@ description: 피그마 MCP를 활용해 디자인을 Next.js 컴포넌트로 퍼
 
 "이런 컴포넌트를 새로 만들어야 할 것 같은데 진행해도 될까요?" 라고 물어본 후 승인을 받아야 한다. 기존 컴포넌트로 대체 가능한지 먼저 충분히 검토하고, 정말 불가능할 때만 새로 만든다.
 
+### 새 컴포넌트 설계 고려사항 (재사용성 & 확장성)
+
+새 컴포넌트를 만들 때는 반드시 아래 기준을 충족하도록 설계한다:
+
+- **Compound Component 원칙 (기본)**: 기본 설계 방식으로 Compound Component 패턴을 사용한다. 부모 컴포넌트가 Context를 소유하고, 자식 서브 컴포넌트들이 `useContext`로 필요한 값을 직접 읽는 구조로 만든다. Props가 3단계 이상 내려가는 props drilling을 원천 차단한다.
+
+  ```tsx
+  // Bad — props drilling
+  <Modal data={data} selected={selected} onSelect={fn} onClose={fn}>
+    <ModalBody data={data} selected={selected} onSelect={fn} />
+  </Modal>
+
+  // Good — Compound Component
+  <TeamSelectModal onClose={fn}>
+    <TeamSelectModal.Title />
+    <TeamSelectModal.TeamGrid />
+  </TeamSelectModal>
+  ```
+
+- **하드코딩 금지**: 컴포넌트 내부에 특정 팀 이름, 특정 문자열, 특정 색상 값을 직접 박지 않는다. 데이터는 외부에서 주입받는다.
+- **variant / className 확장**: 스타일 변형이 생길 가능성이 있으면 CVA variant 또는 `className` prop을 열어둔다.
+- **콜백 분리**: 클릭, 선택, 닫기 등의 동작은 컴포넌트 내부에서 처리하지 않고 `onXxx` 형태의 props로 부모에게 위임한다.
+- **단일 책임**: 하나의 컴포넌트는 하나의 UI 역할만 담당한다. 데이터 fetching, 비즈니스 로직, 상태 파생은 컴포넌트 파일에 두지 않는다.
+
 ### 디렉토리 배치
 
 | 조건                                | 위치                                         |
@@ -160,6 +184,53 @@ lotte (#041e42)
 - 서버 데이터: TanStack Query (`@tanstack/react-query`)
 - 클라이언트 상태: Redux Toolkit (`@reduxjs/toolkit`)
 - 폼: React Hook Form + Zod
+
+#### 컴포넌트 파일 역할 3분리 원칙
+
+파일 하나에 하나의 역할만 담는다. 세 역할을 아래와 같이 나눈다:
+
+| 파일 | 역할 | 금지 사항 |
+| --- | --- | --- |
+| `[컴포넌트].tsx` | Context 구조 + 서브 컴포넌트 + JSX 렌더링 | `useAppDispatch` / `useAppSelector` 직접 호출 금지 |
+| `hook/use[컴포넌트].ts` | Redux 연결 전담 — 상태값과 핸들러를 반환 | 비즈니스 로직 외 JSX 렌더링 금지 |
+| `store/[도메인]Store.ts` | 상태 정의, 액션, 리듀서, 셀렉터 | UI 관련 코드 금지 |
+
+컴포넌트는 훅이 반환한 값과 핸들러만 받아서 렌더링한다.
+
+```tsx
+// hook/useTeamSelectModal.ts — Redux 연결
+export const useTeamSelectModal = () => {
+  const dispatch = useAppDispatch();
+  const selectedTeam = useAppSelector(selectMyTeam);
+  const handleSelect = (team: Team) => { dispatch(setMyTeam(team)); };
+  return { selectedTeam, handleSelect };
+};
+
+// TeamSelectModal.tsx — 순수 UI
+const TeamSelectModal = ({ onClose }: TeamSelectModalProps) => {
+  const { selectedTeam, handleSelect } = useTeamSelectModal();
+  // Context에 주입 후 서브 컴포넌트에서 소비
+};
+```
+
+#### store 폴더 — 관심사별 분리
+
+`src/store/` 아래에 **기능/도메인 단위**로 store를 나눈다:
+
+```
+src/store/
+  store.ts          — 루트 스토어 (reducer 등록만)
+  hook.ts           — useAppDispatch, useAppSelector 타입 훅
+  myTeamStore.ts    — 내 팀 선택 상태
+  scheduleStore.ts  — 경기 일정 관련 상태
+  stadiumStore.ts   — 구장 관련 상태
+  ...
+```
+
+- 파일 네이밍은 **`[도메인]Store.ts`** 형식을 사용한다. `Slice` 접미사는 사용하지 않는다. (예: `myTeamStore.ts`, `stadiumStore.ts`)
+- store 하나 = 하나의 도메인/기능 (팀, 경기, 구장 등)
+- 같은 상태를 여러 컴포넌트에서 쓸 수 있도록 selector를 store 파일에 함께 export한다
+- 컴포넌트는 `useAppSelector`로 읽고, `useAppDispatch`로 action만 dispatch한다 — store 내부 구조에 직접 접근하지 않는다
 
 ---
 
