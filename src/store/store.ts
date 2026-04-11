@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import dummyReducer from "./dummySlice";
+import dummyReducer from "./dummyStore";
 import myTeamReducer from "./myTeamStore";
 
 export const makeStore = () => {
