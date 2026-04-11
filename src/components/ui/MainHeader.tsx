@@ -13,7 +13,7 @@ import { H3, P } from "@/lib/Typography";
 import { cn } from "@/lib/utils";
 import IconTextButton from "@/shared/ui/IconTextButton";
 import TeamSelectModal from "@/components/ui/TeamSelectModal";
-import { useMainHeader } from "@/hook/useMainHeader";
+import { useMainHeader } from "@/components/main/hook/useMainHeader";
 
 const MainHeader = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

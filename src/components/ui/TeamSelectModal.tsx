@@ -4,7 +4,7 @@ import { createContext, useContext } from "react";
 import { IconX, IconStarFilled } from "@tabler/icons-react";
 import { H3, P } from "@/lib/Typography";
 import { cn } from "@/lib/utils";
-import { useTeamSelectModal } from "@/hook/useTeamSelectModal";
+import { useTeamSelectModal } from "@/components/main/hook/useTeamSelectModal";
 import { KBO_TEAMS } from "@/store/myTeamStore";
 import type { Team } from "@/store/myTeamStore";
 
