@@ -9,7 +9,7 @@ import {
   IconMapPin,
 } from "@tabler/icons-react";
 import { H3, P } from "@/lib/Typography";
-import { Stadium } from "@/components/map/ui/StadiumMarker";
+import { Stadium } from "@/store/stadiumStore";
 import SectionCard from "@/components/map/ui/SectionCard";
 import WeatherInfoItem from "@/components/map/ui/WeatherInfoItem";
 import HourlyForecast from "@/components/map/ui/HourlyForecast";
