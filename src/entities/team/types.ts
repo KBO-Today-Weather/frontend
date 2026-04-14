@@ -1,4 +1,5 @@
 export interface TeamData extends Record<string, unknown> {
+  id: string;
   rank: number;
   team: string;
   games: number;
@@ -7,6 +8,39 @@ export interface TeamData extends Record<string, unknown> {
   draws: number;
   winRate: number;
   streak: string;
+}
+
+export interface TeamDetail {
+  id: string;
+  order: number;
+  name: string;
+  stadium: string;
+  color: string;
+  rank: number;
+  games: number;
+  wins: number;
+  losses: number;
+  draws: number;
+  winRate: number;
+  streak: string;
+  players: Player[];
+  coaches: Player[];
+  battingStats: TeamStat[];
+  pitchingStats: TeamStat[];
+}
+
+export interface Player {
+  jerseyNumber: number;
+  name: string;
+  position: string;
+  average: string;
+  details: string;
+}
+
+export interface TeamStat {
+  label: string;
+  value: string;
+  rank: string;
 }
 
 export const TEAM_COLORS: Record<string, string> = {
