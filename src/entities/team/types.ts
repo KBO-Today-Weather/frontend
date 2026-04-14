@@ -44,6 +44,19 @@ export interface TeamStat {
   rank: string;
 }
 
+export const TEAM_HEX_COLORS: Record<string, string> = {
+  kia: "#ea0029",
+  kt: "#000000",
+  lg: "#c30452",
+  nc: "#325288",
+  ssg: "#ce0f2d",
+  doosan: "#131230",
+  lotte: "#041e42",
+  samsung: "#064ca2",
+  kiwoom: "#570414",
+  hanwha: "#fc4f00",
+};
+
 export const TEAM_COLORS: Record<string, string> = {
   "두산 베어스": "bg-doosan",
   "LG 트윈스": "bg-Lg",
