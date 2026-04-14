@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Container from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import PlayerListItem from "@/components/team/ui/PlayerListItem";
@@ -8,12 +9,14 @@ import { Player } from "@/entities/team";
 import { cn } from "@/lib/utils";
 
 interface PlayerSearchSectionProps {
+  teamId: string;
   teamColor: string;
   players: Player[];
   coaches: Player[];
 }
 
-const PlayerSearchSection = ({ teamColor, players, coaches }: PlayerSearchSectionProps) => {
+const PlayerSearchSection = ({ teamId, teamColor, players, coaches }: PlayerSearchSectionProps) => {
+  const router = useRouter();
   const [tab, setTab] = useState<"player" | "coach">("player");
   const [query, setQuery] = useState("");
 
@@ -49,7 +52,12 @@ const PlayerSearchSection = ({ teamColor, players, coaches }: PlayerSearchSectio
       </div>
       <div>
         {filtered.map((p) => (
-          <PlayerListItem key={p.jerseyNumber} {...p} teamColor={teamColor} />
+          <PlayerListItem
+            key={p.jerseyNumber}
+            {...p}
+            teamColor={teamColor}
+            onClick={() => router.push(`/team/${teamId}/player/${p.id}`)}
+          />
         ))}
       </div>
     </Container>

@@ -16,13 +16,13 @@ export const TEAM_DETAILS: TeamDetail[] = [
     winRate: 0.412,
     streak: "9승",
     players: [
-      { jerseyNumber: 7, name: "나성범", position: "외야수", average: ".301", details: "21HR 78RBI" },
-      { jerseyNumber: 53, name: "김도영", position: "내야수", average: ".312", details: "18HR 65RBI" },
-      { jerseyNumber: 34, name: "최형우", position: "지명타자", average: ".289", details: "15HR 70RBI" },
+      { id: "7", jerseyNumber: 7, name: "나성범", position: "외야수", average: ".301", details: "21HR 78RBI" },
+      { id: "53", jerseyNumber: 53, name: "김도영", position: "내야수", average: ".312", details: "18HR 65RBI" },
+      { id: "34", jerseyNumber: 34, name: "최형우", position: "지명타자", average: ".289", details: "15HR 70RBI" },
     ],
     coaches: [
-      { jerseyNumber: 71, name: "이범호", position: "감독", average: "", details: "" },
-      { jerseyNumber: 72, name: "김종국", position: "수석코치", average: "", details: "" },
+      { id: "71", jerseyNumber: 71, name: "이범호", position: "감독", average: "", details: "" },
+      { id: "72", jerseyNumber: 72, name: "김종국", position: "수석코치", average: "", details: "" },
     ],
     battingStats: [
       { label: "타율", value: ".268", rank: "8위" },
@@ -55,13 +55,13 @@ export const TEAM_DETAILS: TeamDetail[] = [
     winRate: 0.513,
     streak: "4패",
     players: [
-      { jerseyNumber: 47, name: "강백호", position: "내야수", average: ".318", details: "29HR 91RBI" },
-      { jerseyNumber: 10, name: "황재균", position: "내야수", average: ".281", details: "17HR 62RBI" },
-      { jerseyNumber: 21, name: "배제성", position: "투수", average: "", details: "" },
+      { id: "47", jerseyNumber: 47, name: "강백호", position: "내야수", average: ".318", details: "29HR 91RBI" },
+      { id: "10", jerseyNumber: 10, name: "황재균", position: "내야수", average: ".281", details: "17HR 62RBI" },
+      { id: "21", jerseyNumber: 21, name: "배제성", position: "투수", average: "", details: "" },
     ],
     coaches: [
-      { jerseyNumber: 77, name: "이강철", position: "감독", average: "", details: "" },
-      { jerseyNumber: 78, name: "이진영", position: "수석코치", average: "", details: "" },
+      { id: "77", jerseyNumber: 77, name: "이강철", position: "감독", average: "", details: "" },
+      { id: "78", jerseyNumber: 78, name: "이진영", position: "수석코치", average: "", details: "" },
     ],
     battingStats: [
       { label: "타율", value: ".281", rank: "4위" },
@@ -94,13 +94,13 @@ export const TEAM_DETAILS: TeamDetail[] = [
     winRate: 0.552,
     streak: "2패",
     players: [
-      { jerseyNumber: 1, name: "오지환", position: "내야수", average: ".291", details: "14HR 68RBI" },
-      { jerseyNumber: 30, name: "박해민", position: "외야수", average: ".303", details: "8HR 45RBI" },
-      { jerseyNumber: 99, name: "임찬규", position: "투수", average: "", details: "" },
+      { id: "1", jerseyNumber: 1, name: "오지환", position: "내야수", average: ".291", details: "14HR 68RBI" },
+      { id: "30", jerseyNumber: 30, name: "박해민", position: "외야수", average: ".303", details: "8HR 45RBI" },
+      { id: "99", jerseyNumber: 99, name: "임찬규", position: "투수", average: "", details: "" },
     ],
     coaches: [
-      { jerseyNumber: 75, name: "염경엽", position: "감독", average: "", details: "" },
-      { jerseyNumber: 76, name: "차명석", position: "수석코치", average: "", details: "" },
+      { id: "75", jerseyNumber: 75, name: "염경엽", position: "감독", average: "", details: "" },
+      { id: "76", jerseyNumber: 76, name: "차명석", position: "수석코치", average: "", details: "" },
     ],
     battingStats: [
       { label: "타율", value: ".289", rank: "2위" },
@@ -133,13 +133,13 @@ export const TEAM_DETAILS: TeamDetail[] = [
     winRate: 0.473,
     streak: "6패",
     players: [
-      { jerseyNumber: 22, name: "손아섭", position: "외야수", average: ".295", details: "16HR 72RBI" },
-      { jerseyNumber: 40, name: "박민우", position: "내야수", average: ".278", details: "6HR 48RBI" },
-      { jerseyNumber: 11, name: "루친스키", position: "투수", average: "", details: "" },
+      { id: "22", jerseyNumber: 22, name: "손아섭", position: "외야수", average: ".295", details: "16HR 72RBI" },
+      { id: "40", jerseyNumber: 40, name: "박민우", position: "내야수", average: ".278", details: "6HR 48RBI" },
+      { id: "11", jerseyNumber: 11, name: "루친스키", position: "투수", average: "", details: "" },
     ],
     coaches: [
-      { jerseyNumber: 80, name: "강인권", position: "감독", average: "", details: "" },
-      { jerseyNumber: 81, name: "이종욱", position: "수석코치", average: "", details: "" },
+      { id: "80", jerseyNumber: 80, name: "강인권", position: "감독", average: "", details: "" },
+      { id: "81", jerseyNumber: 81, name: "이종욱", position: "수석코치", average: "", details: "" },
     ],
     battingStats: [
       { label: "타율", value: ".274", rank: "6위" },
@@ -172,13 +172,13 @@ export const TEAM_DETAILS: TeamDetail[] = [
     winRate: 0.493,
     streak: "5승",
     players: [
-      { jerseyNumber: 32, name: "최정", position: "내야수", average: ".276", details: "31HR 88RBI" },
-      { jerseyNumber: 9, name: "추신수", position: "외야수", average: ".282", details: "12HR 55RBI" },
-      { jerseyNumber: 58, name: "김광현", position: "투수", average: "", details: "" },
+      { id: "32", jerseyNumber: 32, name: "최정", position: "내야수", average: ".276", details: "31HR 88RBI" },
+      { id: "9", jerseyNumber: 9, name: "추신수", position: "외야수", average: ".282", details: "12HR 55RBI" },
+      { id: "58", jerseyNumber: 58, name: "김광현", position: "투수", average: "", details: "" },
     ],
     coaches: [
-      { jerseyNumber: 83, name: "이숭용", position: "감독", average: "", details: "" },
-      { jerseyNumber: 84, name: "이정훈", position: "수석코치", average: "", details: "" },
+      { id: "83", jerseyNumber: 83, name: "이숭용", position: "감독", average: "", details: "" },
+      { id: "84", jerseyNumber: 84, name: "이정훈", position: "수석코치", average: "", details: "" },
     ],
     battingStats: [
       { label: "타율", value: ".278", rank: "5위" },
@@ -211,14 +211,14 @@ export const TEAM_DETAILS: TeamDetail[] = [
     winRate: 0.571,
     streak: "1승",
     players: [
-      { jerseyNumber: 5, name: "김현수", position: "외야수", average: ".315", details: "28HR 95RBI" },
-      { jerseyNumber: 7, name: "박건우", position: "외야수", average: ".298", details: "15HR 68RBI" },
-      { jerseyNumber: 25, name: "양의지", position: "포수", average: ".276", details: "18HR 71RBI" },
-      { jerseyNumber: 37, name: "이민호", position: "투수", average: "", details: "" },
+      { id: "5", jerseyNumber: 5, name: "김현수", position: "외야수", average: ".315", details: "28HR 95RBI" },
+      { id: "7", jerseyNumber: 7, name: "박건우", position: "외야수", average: ".298", details: "15HR 68RBI" },
+      { id: "25", jerseyNumber: 25, name: "양의지", position: "포수", average: ".276", details: "18HR 71RBI" },
+      { id: "37", jerseyNumber: 37, name: "이민호", position: "투수", average: "", details: "" },
     ],
     coaches: [
-      { jerseyNumber: 71, name: "이승엽", position: "감독", average: "", details: "" },
-      { jerseyNumber: 72, name: "홍성흔", position: "수석코치", average: "", details: "" },
+      { id: "71", jerseyNumber: 71, name: "이승엽", position: "감독", average: "", details: "" },
+      { id: "72", jerseyNumber: 72, name: "홍성흔", position: "수석코치", average: "", details: "" },
     ],
     battingStats: [
       { label: "타율", value: ".295", rank: "1위" },
@@ -251,13 +251,13 @@ export const TEAM_DETAILS: TeamDetail[] = [
     winRate: 0.432,
     streak: "8패",
     players: [
-      { jerseyNumber: 23, name: "전준우", position: "외야수", average: ".287", details: "18HR 74RBI" },
-      { jerseyNumber: 1, name: "안치홍", position: "내야수", average: ".271", details: "11HR 55RBI" },
-      { jerseyNumber: 45, name: "댄 스트레일리", position: "투수", average: "", details: "" },
+      { id: "23", jerseyNumber: 23, name: "전준우", position: "외야수", average: ".287", details: "18HR 74RBI" },
+      { id: "1", jerseyNumber: 1, name: "안치홍", position: "내야수", average: ".271", details: "11HR 55RBI" },
+      { id: "45", jerseyNumber: 45, name: "댄 스트레일리", position: "투수", average: "", details: "" },
     ],
     coaches: [
-      { jerseyNumber: 78, name: "김태형", position: "감독", average: "", details: "" },
-      { jerseyNumber: 79, name: "박정태", position: "수석코치", average: "", details: "" },
+      { id: "78", jerseyNumber: 78, name: "김태형", position: "감독", average: "", details: "" },
+      { id: "79", jerseyNumber: 79, name: "박정태", position: "수석코치", average: "", details: "" },
     ],
     battingStats: [
       { label: "타율", value: ".271", rank: "8위" },
@@ -290,13 +290,13 @@ export const TEAM_DETAILS: TeamDetail[] = [
     winRate: 0.453,
     streak: "7승",
     players: [
-      { jerseyNumber: 24, name: "오지환", position: "내야수", average: ".287", details: "22HR 82RBI" },
-      { jerseyNumber: 13, name: "구자욱", position: "외야수", average: ".305", details: "20HR 76RBI" },
-      { jerseyNumber: 37, name: "이민호", position: "투수", average: "", details: "" },
+      { id: "24", jerseyNumber: 24, name: "오지환", position: "내야수", average: ".287", details: "22HR 82RBI" },
+      { id: "13", jerseyNumber: 13, name: "구자욱", position: "외야수", average: ".305", details: "20HR 76RBI" },
+      { id: "37", jerseyNumber: 37, name: "이민호", position: "투수", average: "", details: "" },
     ],
     coaches: [
-      { jerseyNumber: 74, name: "박진만", position: "감독", average: "", details: "" },
-      { jerseyNumber: 75, name: "이병규", position: "수석코치", average: "", details: "" },
+      { id: "74", jerseyNumber: 74, name: "박진만", position: "감독", average: "", details: "" },
+      { id: "75", jerseyNumber: 75, name: "이병규", position: "수석코치", average: "", details: "" },
     ],
     battingStats: [
       { label: "타율", value: ".275", rank: "7위" },
@@ -329,13 +329,13 @@ export const TEAM_DETAILS: TeamDetail[] = [
     winRate: 0.532,
     streak: "3승",
     players: [
-      { jerseyNumber: 51, name: "이정후", position: "외야수", average: ".340", details: "23HR 98RBI" },
-      { jerseyNumber: 1, name: "김혜성", position: "내야수", average: ".308", details: "10HR 58RBI" },
-      { jerseyNumber: 22, name: "안우진", position: "투수", average: "", details: "" },
+      { id: "51", jerseyNumber: 51, name: "이정후", position: "외야수", average: ".340", details: "23HR 98RBI" },
+      { id: "1", jerseyNumber: 1, name: "김혜성", position: "내야수", average: ".308", details: "10HR 58RBI" },
+      { id: "22", jerseyNumber: 22, name: "안우진", position: "투수", average: "", details: "" },
     ],
     coaches: [
-      { jerseyNumber: 86, name: "홍원기", position: "감독", average: "", details: "" },
-      { jerseyNumber: 87, name: "장정석", position: "수석코치", average: "", details: "" },
+      { id: "86", jerseyNumber: 86, name: "홍원기", position: "감독", average: "", details: "" },
+      { id: "87", jerseyNumber: 87, name: "장정석", position: "수석코치", average: "", details: "" },
     ],
     battingStats: [
       { label: "타율", value: ".285", rank: "3위" },
@@ -368,13 +368,13 @@ export const TEAM_DETAILS: TeamDetail[] = [
     winRate: 0.391,
     streak: "10패",
     players: [
-      { jerseyNumber: 10, name: "노시환", position: "내야수", average: ".262", details: "35HR 102RBI" },
-      { jerseyNumber: 31, name: "채은성", position: "외야수", average: ".274", details: "14HR 60RBI" },
-      { jerseyNumber: 44, name: "류현진", position: "투수", average: "", details: "" },
+      { id: "10", jerseyNumber: 10, name: "노시환", position: "내야수", average: ".262", details: "35HR 102RBI" },
+      { id: "31", jerseyNumber: 31, name: "채은성", position: "외야수", average: ".274", details: "14HR 60RBI" },
+      { id: "44", jerseyNumber: 44, name: "류현진", position: "투수", average: "", details: "" },
     ],
     coaches: [
-      { jerseyNumber: 89, name: "김경문", position: "감독", average: "", details: "" },
-      { jerseyNumber: 90, name: "한용덕", position: "수석코치", average: "", details: "" },
+      { id: "89", jerseyNumber: 89, name: "김경문", position: "감독", average: "", details: "" },
+      { id: "90", jerseyNumber: 90, name: "한용덕", position: "수석코치", average: "", details: "" },
     ],
     battingStats: [
       { label: "타율", value: ".262", rank: "10위" },
@@ -395,7 +395,6 @@ export const TEAM_DETAILS: TeamDetail[] = [
   },
 ];
 
-// 순위 기준 정렬된 standings 데이터
 export const STANDINGS: TeamData[] = TEAM_DETAILS.map((t) => ({
   id: t.id,
   rank: t.rank,

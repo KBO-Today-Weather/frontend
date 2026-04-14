@@ -25,6 +25,7 @@ const TeamDetailPage = async ({ params }: TeamDetailPageProps) => {
       <TeamHero teamName={team.name} stadium={team.stadium} teamColor={team.color} />
       <TeamQuickStats rank={team.rank} winRate={team.winRate} streak={team.streak} />
       <PlayerSearchSection
+        teamId={team.id}
         teamColor={team.color}
         players={team.players}
         coaches={team.coaches}

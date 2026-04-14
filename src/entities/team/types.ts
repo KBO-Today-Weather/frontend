@@ -30,6 +30,7 @@ export interface TeamDetail {
 }
 
 export interface Player {
+  id: string;
   jerseyNumber: number;
   name: string;
   position: string;

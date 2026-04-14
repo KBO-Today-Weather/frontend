@@ -3,11 +3,12 @@ import { Player } from "@/entities/team";
 
 interface PlayerListItemProps extends Player {
   teamColor: string;
+  onClick?: () => void;
 }
 
-const PlayerListItem = ({ jerseyNumber, name, position, average, details, teamColor }: PlayerListItemProps) => {
+const PlayerListItem = ({ jerseyNumber, name, position, average, details, teamColor, onClick }: PlayerListItemProps) => {
   return (
-    <div className="flex items-center justify-between py-3 border-b border-gray-100 last:border-none cursor-pointer hover:bg-gray-50 px-1">
+    <div onClick={onClick} className="flex items-center justify-between py-3 border-b border-gray-100 last:border-none cursor-pointer hover:bg-gray-50 px-1">
       <div className="flex items-center gap-3">
         <div className={`w-8 h-8 rounded-full ${teamColor} flex items-center justify-center shrink-0`}>
           <span className="text-white text-xs font-bold">{jerseyNumber}</span>
