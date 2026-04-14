@@ -8,12 +8,12 @@ import {
   IconChartBar,
   IconStarFilled,
 } from "@tabler/icons-react";
-import Image from "next/image";
-import { H3, P } from "@/lib/Typography";
+import { P } from "@/lib/Typography";
 import { cn } from "@/lib/utils";
 import IconTextButton from "@/shared/ui/IconTextButton";
 import TeamSelectModal from "@/components/main/ui/TeamSelectModal";
 import { useMainHeader } from "@/components/main/hook/useMainHeader";
+import AppLogo from "@/shared/ui/AppLogo";
 
 const MainHeader = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -22,10 +22,7 @@ const MainHeader = () => {
   return (
     <>
       <header className="top-0 z-50 flex items-center justify-between w-full h-14 px-2 border-b border-gray-200 bg-white">
-        <div className="flex items-center">
-          <Image src="/image/KBOLogo.svg" alt="KBO Logo" width={45} height={45} />
-          <H3 className="font-bold text-black"> KBO늘의 날씨</H3>
-        </div>
+        <AppLogo />
 
         <div className="flex items-center">
           <IconTextButton icon={IconHome} text="홈" />
