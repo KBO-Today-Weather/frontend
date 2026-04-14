@@ -1,0 +1,438 @@
+import { PlayerDetail } from "./types";
+
+const BATTER_ABILITIES = (
+  contact: number, power: number, reach: number,
+  steal: number, run: number,
+  defense: number, posValue: number
+): PlayerDetail["abilityCategories"] => [
+  {
+    category: "타격",
+    stats: [
+      { label: "컨택", score: contact, percentile: `상위 ${100 - contact}%` },
+      { label: "파워", score: power, percentile: `상위 ${100 - power}%` },
+      { label: "출루", score: reach, percentile: `상위 ${100 - reach}%` },
+    ],
+  },
+  {
+    category: "주루",
+    stats: [
+      { label: "도루", score: steal, percentile: `상위 ${100 - steal}%` },
+      { label: "주루능력", score: run, percentile: `상위 ${100 - run}%` },
+    ],
+  },
+  {
+    category: "수비",
+    stats: [
+      { label: "수비력", score: defense, percentile: `상위 ${100 - defense}%` },
+      { label: "포지션가치", score: posValue, percentile: `상위 ${100 - posValue}%` },
+    ],
+  },
+];
+
+const PITCHER_ABILITIES = (
+  speed: number, control: number, stuff: number,
+  focus: number, clutch: number
+): PlayerDetail["abilityCategories"] => [
+  {
+    category: "투구",
+    stats: [
+      { label: "구속", score: speed, percentile: `상위 ${100 - speed}%` },
+      { label: "제구", score: control, percentile: `상위 ${100 - control}%` },
+      { label: "구위", score: stuff, percentile: `상위 ${100 - stuff}%` },
+    ],
+  },
+  {
+    category: "정신력",
+    stats: [
+      { label: "집중력", score: focus, percentile: `상위 ${100 - focus}%` },
+      { label: "승부근성", score: clutch, percentile: `상위 ${100 - clutch}%` },
+    ],
+  },
+];
+
+// key: "${teamId}-${playerId}"
+export const PLAYER_DETAILS: Record<string, PlayerDetail> = {
+  // KIA 타이거즈
+  "kia-7": {
+    id: "7", jerseyNumber: 7, name: "나성범", teamId: "kia", teamName: "KIA 타이거즈", teamColor: "bg-kia",
+    position: "외야수", batting: "우타", throwing: "우투",
+    coreStats: [
+      { label: "타율", value: ".301" }, { label: "출루율", value: ".368" },
+      { label: "장타율", value: ".498" }, { label: "OPS", value: ".866" }, { label: "홈런", value: "21" },
+    ],
+    abilityCategories: BATTER_ABILITIES(82, 80, 78, 70, 72, 80, 82),
+  },
+  "kia-53": {
+    id: "53", jerseyNumber: 53, name: "김도영", teamId: "kia", teamName: "KIA 타이거즈", teamColor: "bg-kia",
+    position: "내야수", batting: "우타", throwing: "우투",
+    coreStats: [
+      { label: "타율", value: ".312" }, { label: "출루율", value: ".378" },
+      { label: "장타율", value: ".511" }, { label: "OPS", value: ".889" }, { label: "홈런", value: "18" },
+    ],
+    abilityCategories: BATTER_ABILITIES(88, 78, 80, 82, 85, 85, 80),
+  },
+  "kia-34": {
+    id: "34", jerseyNumber: 34, name: "최형우", teamId: "kia", teamName: "KIA 타이거즈", teamColor: "bg-kia",
+    position: "지명타자", batting: "좌타", throwing: "우투",
+    coreStats: [
+      { label: "타율", value: ".289" }, { label: "출루율", value: ".358" },
+      { label: "장타율", value: ".475" }, { label: "OPS", value: ".833" }, { label: "홈런", value: "15" },
+    ],
+    abilityCategories: BATTER_ABILITIES(85, 82, 83, 50, 55, 60, 65),
+  },
+  "kia-71": {
+    id: "71", jerseyNumber: 71, name: "이범호", teamId: "kia", teamName: "KIA 타이거즈", teamColor: "bg-kia",
+    position: "감독",
+    coreStats: [], abilityCategories: [],
+  },
+  "kia-72": {
+    id: "72", jerseyNumber: 72, name: "김종국", teamId: "kia", teamName: "KIA 타이거즈", teamColor: "bg-kia",
+    position: "수석코치",
+    coreStats: [], abilityCategories: [],
+  },
+
+  // KT 위즈
+  "kt-47": {
+    id: "47", jerseyNumber: 47, name: "강백호", teamId: "kt", teamName: "KT 위즈", teamColor: "bg-kt",
+    position: "내야수", batting: "우타", throwing: "우투",
+    coreStats: [
+      { label: "타율", value: ".318" }, { label: "출루율", value: ".392" },
+      { label: "장타율", value: ".538" }, { label: "OPS", value: ".930" }, { label: "홈런", value: "29" },
+    ],
+    abilityCategories: BATTER_ABILITIES(86, 92, 85, 60, 65, 80, 85),
+  },
+  "kt-10": {
+    id: "10", jerseyNumber: 10, name: "황재균", teamId: "kt", teamName: "KT 위즈", teamColor: "bg-kt",
+    position: "내야수", batting: "우타", throwing: "우투",
+    coreStats: [
+      { label: "타율", value: ".281" }, { label: "출루율", value: ".345" },
+      { label: "장타율", value: ".458" }, { label: "OPS", value: ".803" }, { label: "홈런", value: "17" },
+    ],
+    abilityCategories: BATTER_ABILITIES(78, 76, 74, 55, 60, 82, 80),
+  },
+  "kt-21": {
+    id: "21", jerseyNumber: 21, name: "배제성", teamId: "kt", teamName: "KT 위즈", teamColor: "bg-kt",
+    position: "투수", throwing: "우투",
+    coreStats: [
+      { label: "방어율", value: "3.82" }, { label: "WHIP", value: "1.28" },
+      { label: "이닝", value: "148" }, { label: "탈삼진", value: "142" }, { label: "세이브", value: "0" },
+    ],
+    abilityCategories: PITCHER_ABILITIES(82, 84, 80, 78, 80),
+  },
+  "kt-77": {
+    id: "77", jerseyNumber: 77, name: "이강철", teamId: "kt", teamName: "KT 위즈", teamColor: "bg-kt",
+    position: "감독", coreStats: [], abilityCategories: [],
+  },
+  "kt-78": {
+    id: "78", jerseyNumber: 78, name: "이진영", teamId: "kt", teamName: "KT 위즈", teamColor: "bg-kt",
+    position: "수석코치", coreStats: [], abilityCategories: [],
+  },
+
+  // LG 트윈스
+  "lg-1": {
+    id: "1", jerseyNumber: 1, name: "오지환", teamId: "lg", teamName: "LG 트윈스", teamColor: "bg-Lg",
+    position: "내야수", batting: "우타", throwing: "우투",
+    coreStats: [
+      { label: "타율", value: ".291" }, { label: "출루율", value: ".362" },
+      { label: "장타율", value: ".482" }, { label: "OPS", value: ".844" }, { label: "홈런", value: "14" },
+    ],
+    abilityCategories: BATTER_ABILITIES(83, 74, 80, 78, 82, 90, 88),
+  },
+  "lg-30": {
+    id: "30", jerseyNumber: 30, name: "박해민", teamId: "lg", teamName: "LG 트윈스", teamColor: "bg-Lg",
+    position: "외야수", batting: "우타", throwing: "우투",
+    coreStats: [
+      { label: "타율", value: ".303" }, { label: "출루율", value: ".372" },
+      { label: "장타율", value: ".438" }, { label: "OPS", value: ".810" }, { label: "홈런", value: "8" },
+    ],
+    abilityCategories: BATTER_ABILITIES(88, 62, 78, 92, 95, 88, 82),
+  },
+  "lg-99": {
+    id: "99", jerseyNumber: 99, name: "임찬규", teamId: "lg", teamName: "LG 트윈스", teamColor: "bg-Lg",
+    position: "투수", throwing: "우투",
+    coreStats: [
+      { label: "방어율", value: "3.45" }, { label: "WHIP", value: "1.18" },
+      { label: "이닝", value: "162" }, { label: "탈삼진", value: "168" }, { label: "세이브", value: "0" },
+    ],
+    abilityCategories: PITCHER_ABILITIES(84, 86, 85, 82, 84),
+  },
+  "lg-75": {
+    id: "75", jerseyNumber: 75, name: "염경엽", teamId: "lg", teamName: "LG 트윈스", teamColor: "bg-Lg",
+    position: "감독", coreStats: [], abilityCategories: [],
+  },
+  "lg-76": {
+    id: "76", jerseyNumber: 76, name: "차명석", teamId: "lg", teamName: "LG 트윈스", teamColor: "bg-Lg",
+    position: "수석코치", coreStats: [], abilityCategories: [],
+  },
+
+  // NC 다이노스
+  "nc-22": {
+    id: "22", jerseyNumber: 22, name: "손아섭", teamId: "nc", teamName: "NC 다이노스", teamColor: "bg-nc",
+    position: "외야수", batting: "좌타", throwing: "우투",
+    coreStats: [
+      { label: "타율", value: ".295" }, { label: "출루율", value: ".365" },
+      { label: "장타율", value: ".478" }, { label: "OPS", value: ".843" }, { label: "홈런", value: "16" },
+    ],
+    abilityCategories: BATTER_ABILITIES(84, 76, 80, 72, 75, 82, 80),
+  },
+  "nc-40": {
+    id: "40", jerseyNumber: 40, name: "박민우", teamId: "nc", teamName: "NC 다이노스", teamColor: "bg-nc",
+    position: "내야수", batting: "우타", throwing: "우투",
+    coreStats: [
+      { label: "타율", value: ".278" }, { label: "출루율", value: ".348" },
+      { label: "장타율", value: ".398" }, { label: "OPS", value: ".746" }, { label: "홈런", value: "6" },
+    ],
+    abilityCategories: BATTER_ABILITIES(82, 58, 76, 88, 90, 86, 84),
+  },
+  "nc-11": {
+    id: "11", jerseyNumber: 11, name: "루친스키", teamId: "nc", teamName: "NC 다이노스", teamColor: "bg-nc",
+    position: "투수", throwing: "우투",
+    coreStats: [
+      { label: "방어율", value: "3.98" }, { label: "WHIP", value: "1.32" },
+      { label: "이닝", value: "145" }, { label: "탈삼진", value: "138" }, { label: "세이브", value: "0" },
+    ],
+    abilityCategories: PITCHER_ABILITIES(85, 80, 82, 75, 78),
+  },
+  "nc-80": {
+    id: "80", jerseyNumber: 80, name: "강인권", teamId: "nc", teamName: "NC 다이노스", teamColor: "bg-nc",
+    position: "감독", coreStats: [], abilityCategories: [],
+  },
+  "nc-81": {
+    id: "81", jerseyNumber: 81, name: "이종욱", teamId: "nc", teamName: "NC 다이노스", teamColor: "bg-nc",
+    position: "수석코치", coreStats: [], abilityCategories: [],
+  },
+
+  // SSG 랜더스
+  "ssg-32": {
+    id: "32", jerseyNumber: 32, name: "최정", teamId: "ssg", teamName: "SSG 랜더스", teamColor: "bg-ssg",
+    position: "내야수", batting: "우타", throwing: "우투",
+    coreStats: [
+      { label: "타율", value: ".276" }, { label: "출루율", value: ".362" },
+      { label: "장타율", value: ".528" }, { label: "OPS", value: ".890" }, { label: "홈런", value: "31" },
+    ],
+    abilityCategories: BATTER_ABILITIES(78, 95, 82, 55, 58, 85, 88),
+  },
+  "ssg-9": {
+    id: "9", jerseyNumber: 9, name: "추신수", teamId: "ssg", teamName: "SSG 랜더스", teamColor: "bg-ssg",
+    position: "외야수", batting: "좌타", throwing: "좌투",
+    coreStats: [
+      { label: "타율", value: ".282" }, { label: "출루율", value: ".378" },
+      { label: "장타율", value: ".468" }, { label: "OPS", value: ".846" }, { label: "홈런", value: "12" },
+    ],
+    abilityCategories: BATTER_ABILITIES(86, 72, 90, 75, 78, 82, 80),
+  },
+  "ssg-58": {
+    id: "58", jerseyNumber: 58, name: "김광현", teamId: "ssg", teamName: "SSG 랜더스", teamColor: "bg-ssg",
+    position: "투수", throwing: "좌투",
+    coreStats: [
+      { label: "방어율", value: "3.22" }, { label: "WHIP", value: "1.12" },
+      { label: "이닝", value: "175" }, { label: "탈삼진", value: "188" }, { label: "세이브", value: "0" },
+    ],
+    abilityCategories: PITCHER_ABILITIES(88, 92, 90, 88, 90),
+  },
+  "ssg-83": {
+    id: "83", jerseyNumber: 83, name: "이숭용", teamId: "ssg", teamName: "SSG 랜더스", teamColor: "bg-ssg",
+    position: "감독", coreStats: [], abilityCategories: [],
+  },
+  "ssg-84": {
+    id: "84", jerseyNumber: 84, name: "이정훈", teamId: "ssg", teamName: "SSG 랜더스", teamColor: "bg-ssg",
+    position: "수석코치", coreStats: [], abilityCategories: [],
+  },
+
+  // 두산 베어스
+  "doosan-5": {
+    id: "5", jerseyNumber: 5, name: "김현수", teamId: "doosan", teamName: "두산 베어스", teamColor: "bg-doosan",
+    position: "외야수", batting: "좌타", throwing: "좌투",
+    coreStats: [
+      { label: "타율", value: ".315" }, { label: "출루율", value: ".392" },
+      { label: "장타율", value: ".548" }, { label: "OPS", value: ".940" }, { label: "홈런", value: "28" },
+    ],
+    abilityCategories: BATTER_ABILITIES(92, 88, 85, 65, 72, 78, 75),
+  },
+  "doosan-7": {
+    id: "7", jerseyNumber: 7, name: "박건우", teamId: "doosan", teamName: "두산 베어스", teamColor: "bg-doosan",
+    position: "외야수", batting: "우타", throwing: "우투",
+    coreStats: [
+      { label: "타율", value: ".298" }, { label: "출루율", value: ".362" },
+      { label: "장타율", value: ".488" }, { label: "OPS", value: ".850" }, { label: "홈런", value: "15" },
+    ],
+    abilityCategories: BATTER_ABILITIES(85, 75, 78, 72, 75, 84, 80),
+  },
+  "doosan-25": {
+    id: "25", jerseyNumber: 25, name: "양의지", teamId: "doosan", teamName: "두산 베어스", teamColor: "bg-doosan",
+    position: "포수", batting: "우타", throwing: "우투",
+    coreStats: [
+      { label: "타율", value: ".276" }, { label: "출루율", value: ".348" },
+      { label: "장타율", value: ".468" }, { label: "OPS", value: ".816" }, { label: "홈런", value: "18" },
+    ],
+    abilityCategories: BATTER_ABILITIES(80, 82, 76, 45, 50, 92, 95),
+  },
+  "doosan-37": {
+    id: "37", jerseyNumber: 37, name: "이민호", teamId: "doosan", teamName: "두산 베어스", teamColor: "bg-doosan",
+    position: "투수", throwing: "우투",
+    coreStats: [
+      { label: "방어율", value: "3.68" }, { label: "WHIP", value: "1.24" },
+      { label: "이닝", value: "152" }, { label: "탈삼진", value: "145" }, { label: "세이브", value: "0" },
+    ],
+    abilityCategories: PITCHER_ABILITIES(82, 80, 78, 80, 82),
+  },
+  "doosan-71": {
+    id: "71", jerseyNumber: 71, name: "이승엽", teamId: "doosan", teamName: "두산 베어스", teamColor: "bg-doosan",
+    position: "감독", coreStats: [], abilityCategories: [],
+  },
+  "doosan-72": {
+    id: "72", jerseyNumber: 72, name: "홍성흔", teamId: "doosan", teamName: "두산 베어스", teamColor: "bg-doosan",
+    position: "수석코치", coreStats: [], abilityCategories: [],
+  },
+
+  // 롯데 자이언츠
+  "lotte-23": {
+    id: "23", jerseyNumber: 23, name: "전준우", teamId: "lotte", teamName: "롯데 자이언츠", teamColor: "bg-lotte",
+    position: "외야수", batting: "우타", throwing: "우투",
+    coreStats: [
+      { label: "타율", value: ".287" }, { label: "출루율", value: ".355" },
+      { label: "장타율", value: ".478" }, { label: "OPS", value: ".833" }, { label: "홈런", value: "18" },
+    ],
+    abilityCategories: BATTER_ABILITIES(82, 78, 76, 70, 72, 82, 80),
+  },
+  "lotte-1": {
+    id: "1", jerseyNumber: 1, name: "안치홍", teamId: "lotte", teamName: "롯데 자이언츠", teamColor: "bg-lotte",
+    position: "내야수", batting: "우타", throwing: "우투",
+    coreStats: [
+      { label: "타율", value: ".271" }, { label: "출루율", value: ".338" },
+      { label: "장타율", value: ".428" }, { label: "OPS", value: ".766" }, { label: "홈런", value: "11" },
+    ],
+    abilityCategories: BATTER_ABILITIES(78, 72, 72, 60, 65, 80, 82),
+  },
+  "lotte-45": {
+    id: "45", jerseyNumber: 45, name: "댄 스트레일리", teamId: "lotte", teamName: "롯데 자이언츠", teamColor: "bg-lotte",
+    position: "투수", throwing: "우투",
+    coreStats: [
+      { label: "방어율", value: "4.12" }, { label: "WHIP", value: "1.35" },
+      { label: "이닝", value: "138" }, { label: "탈삼진", value: "128" }, { label: "세이브", value: "0" },
+    ],
+    abilityCategories: PITCHER_ABILITIES(80, 78, 82, 72, 75),
+  },
+  "lotte-78": {
+    id: "78", jerseyNumber: 78, name: "김태형", teamId: "lotte", teamName: "롯데 자이언츠", teamColor: "bg-lotte",
+    position: "감독", coreStats: [], abilityCategories: [],
+  },
+  "lotte-79": {
+    id: "79", jerseyNumber: 79, name: "박정태", teamId: "lotte", teamName: "롯데 자이언츠", teamColor: "bg-lotte",
+    position: "수석코치", coreStats: [], abilityCategories: [],
+  },
+
+  // 삼성 라이온즈
+  "samsung-24": {
+    id: "24", jerseyNumber: 24, name: "오지환", teamId: "samsung", teamName: "삼성 라이온즈", teamColor: "bg-samsung",
+    position: "내야수", batting: "우타", throwing: "우투",
+    coreStats: [
+      { label: "타율", value: ".287" }, { label: "출루율", value: ".355" },
+      { label: "장타율", value: ".488" }, { label: "OPS", value: ".843" }, { label: "홈런", value: "22" },
+    ],
+    abilityCategories: BATTER_ABILITIES(82, 80, 78, 68, 72, 88, 86),
+  },
+  "samsung-13": {
+    id: "13", jerseyNumber: 13, name: "구자욱", teamId: "samsung", teamName: "삼성 라이온즈", teamColor: "bg-samsung",
+    position: "외야수", batting: "좌타", throwing: "우투",
+    coreStats: [
+      { label: "타율", value: ".305" }, { label: "출루율", value: ".375" },
+      { label: "장타율", value: ".512" }, { label: "OPS", value: ".887" }, { label: "홈런", value: "20" },
+    ],
+    abilityCategories: BATTER_ABILITIES(86, 82, 82, 75, 78, 84, 82),
+  },
+  "samsung-37": {
+    id: "37", jerseyNumber: 37, name: "이민호", teamId: "samsung", teamName: "삼성 라이온즈", teamColor: "bg-samsung",
+    position: "투수", throwing: "우투",
+    coreStats: [
+      { label: "방어율", value: "3.72" }, { label: "WHIP", value: "1.22" },
+      { label: "이닝", value: "158" }, { label: "탈삼진", value: "155" }, { label: "세이브", value: "0" },
+    ],
+    abilityCategories: PITCHER_ABILITIES(84, 86, 82, 82, 84),
+  },
+  "samsung-74": {
+    id: "74", jerseyNumber: 74, name: "박진만", teamId: "samsung", teamName: "삼성 라이온즈", teamColor: "bg-samsung",
+    position: "감독", coreStats: [], abilityCategories: [],
+  },
+  "samsung-75": {
+    id: "75", jerseyNumber: 75, name: "이병규", teamId: "samsung", teamName: "삼성 라이온즈", teamColor: "bg-samsung",
+    position: "수석코치", coreStats: [], abilityCategories: [],
+  },
+
+  // 키움 히어로즈
+  "kiwoom-51": {
+    id: "51", jerseyNumber: 51, name: "이정후", teamId: "kiwoom", teamName: "키움 히어로즈", teamColor: "bg-kiwoom",
+    position: "외야수", batting: "우타", throwing: "우투",
+    coreStats: [
+      { label: "타율", value: ".340" }, { label: "출루율", value: ".408" },
+      { label: "장타율", value: ".558" }, { label: "OPS", value: ".966" }, { label: "홈런", value: "23" },
+    ],
+    abilityCategories: BATTER_ABILITIES(95, 85, 90, 80, 84, 88, 86),
+  },
+  "kiwoom-1": {
+    id: "1", jerseyNumber: 1, name: "김혜성", teamId: "kiwoom", teamName: "키움 히어로즈", teamColor: "bg-kiwoom",
+    position: "내야수", batting: "우타", throwing: "우투",
+    coreStats: [
+      { label: "타율", value: ".308" }, { label: "출루율", value: ".375" },
+      { label: "장타율", value: ".468" }, { label: "OPS", value: ".843" }, { label: "홈런", value: "10" },
+    ],
+    abilityCategories: BATTER_ABILITIES(88, 68, 82, 85, 88, 86, 84),
+  },
+  "kiwoom-22": {
+    id: "22", jerseyNumber: 22, name: "안우진", teamId: "kiwoom", teamName: "키움 히어로즈", teamColor: "bg-kiwoom",
+    position: "투수", throwing: "우투",
+    coreStats: [
+      { label: "방어율", value: "3.58" }, { label: "WHIP", value: "1.20" },
+      { label: "이닝", value: "165" }, { label: "탈삼진", value: "172" }, { label: "세이브", value: "0" },
+    ],
+    abilityCategories: PITCHER_ABILITIES(90, 85, 88, 84, 86),
+  },
+  "kiwoom-86": {
+    id: "86", jerseyNumber: 86, name: "홍원기", teamId: "kiwoom", teamName: "키움 히어로즈", teamColor: "bg-kiwoom",
+    position: "감독", coreStats: [], abilityCategories: [],
+  },
+  "kiwoom-87": {
+    id: "87", jerseyNumber: 87, name: "장정석", teamId: "kiwoom", teamName: "키움 히어로즈", teamColor: "bg-kiwoom",
+    position: "수석코치", coreStats: [], abilityCategories: [],
+  },
+
+  // 한화 이글스
+  "hanwha-10": {
+    id: "10", jerseyNumber: 10, name: "노시환", teamId: "hanwha", teamName: "한화 이글스", teamColor: "bg-hanwha",
+    position: "내야수", batting: "우타", throwing: "우투",
+    coreStats: [
+      { label: "타율", value: ".262" }, { label: "출루율", value: ".338" },
+      { label: "장타율", value: ".528" }, { label: "OPS", value: ".866" }, { label: "홈런", value: "35" },
+    ],
+    abilityCategories: BATTER_ABILITIES(72, 95, 72, 50, 55, 75, 78),
+  },
+  "hanwha-31": {
+    id: "31", jerseyNumber: 31, name: "채은성", teamId: "hanwha", teamName: "한화 이글스", teamColor: "bg-hanwha",
+    position: "외야수", batting: "우타", throwing: "우투",
+    coreStats: [
+      { label: "타율", value: ".274" }, { label: "출루율", value: ".342" },
+      { label: "장타율", value: ".452" }, { label: "OPS", value: ".794" }, { label: "홈런", value: "14" },
+    ],
+    abilityCategories: BATTER_ABILITIES(78, 74, 72, 68, 70, 80, 78),
+  },
+  "hanwha-44": {
+    id: "44", jerseyNumber: 44, name: "류현진", teamId: "hanwha", teamName: "한화 이글스", teamColor: "bg-hanwha",
+    position: "투수", throwing: "좌투",
+    coreStats: [
+      { label: "방어율", value: "3.95" }, { label: "WHIP", value: "1.25" },
+      { label: "이닝", value: "142" }, { label: "탈삼진", value: "138" }, { label: "세이브", value: "0" },
+    ],
+    abilityCategories: PITCHER_ABILITIES(85, 90, 88, 86, 88),
+  },
+  "hanwha-89": {
+    id: "89", jerseyNumber: 89, name: "김경문", teamId: "hanwha", teamName: "한화 이글스", teamColor: "bg-hanwha",
+    position: "감독", coreStats: [], abilityCategories: [],
+  },
+  "hanwha-90": {
+    id: "90", jerseyNumber: 90, name: "한용덕", teamId: "hanwha", teamName: "한화 이글스", teamColor: "bg-hanwha",
+    position: "수석코치", coreStats: [], abilityCategories: [],
+  },
+};
+
+export const getPlayerDetail = (teamId: string, playerId: string): PlayerDetail | undefined =>
+  PLAYER_DETAILS[`${teamId}-${playerId}`];

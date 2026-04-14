@@ -45,7 +45,7 @@
         "./src/providers/*"
       ],
       "@/entities/*": [
-        "./entities/*"
+        "./src/entities/*"
       ]
     }
   },
